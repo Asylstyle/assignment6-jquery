@@ -23,7 +23,9 @@ if (window.jQuery) {
     $("#change-style").on("click", function () {
       $copy.css({ color: "#aa492c", fontWeight: "600" });
       $tags.css({ backgroundColor: "#f4ded4", color: "#84391f" });
-      $feedback.text(".css() styled the class selection and the span tag selection.");
+      $feedback.text(
+        ".css() styled the class selection and the span tag selection.",
+      );
     });
 
     $("#reset-selectors").on("click", function () {

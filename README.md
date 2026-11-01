@@ -23,20 +23,20 @@ Visit `http://localhost:8000`. There is no build step, package installation, or 
 
 ## Assignment requirements
 
-| Part | Task | Implementation | Page |
-| --- | --- | --- | --- |
-| 1 | 0 — Setup | Full jQuery 3.7.1 from the official CDN; `$(document).ready()`; exact console message `jQuery is ready!` | `index.html` |
-| 1 | 1 — Selectors and CSS | ID, class, and tag selectors; `.text()`, `.html()`, `.css()`; reset button | `index.html` |
-| 2 | 2 — Visibility | Paragraph with Hide, Show, Toggle; `.hide()`, `.show()`, `.toggle()` | `effects.html` |
-| 2 | 3 — Fade | Image with `.fadeIn()`, `.fadeOut()`, `.fadeToggle()` | `effects.html` |
-| 2 | 4 — Slide | Collapsible panel with `.slideUp()`, `.slideDown()`, `.slideToggle()` | `effects.html` |
-| 3 | 5 — Add and remove | List with Add Item, Prepend Item, Remove Item; `.append()`, `.prepend()`, `.remove()` | `dom.html` |
-| 3 | 6 — Attributes | Buttons change an image's `src` and a link's `href` with `.attr()` | `dom.html` |
-| 3 | 7 — Form | Name and Email fields; live preview through `input`, `.val()`, `.text()` | `dom.html` |
-| 4 | 8 — Basic animation | Square grows and changes position using `.animate()` | `animations.html` |
-| 4 | 9 — Sequential animations | Right → down → shrink → return to original state using a chain of `.animate()` calls | `animations.html` |
-| 4 | 10 — Combined animation | Opacity, size, and movement in a single `.animate()` call | `animations.html` |
-| 5 | 11 — Mini project | Four-image gallery; thumbnails fade in/out; click to enlarge; next/previous controls | `gallery.html` |
+| Part | Task                      | Implementation                                                                                           | Page              |
+| ---- | ------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------- |
+| 1    | 0 — Setup                 | Full jQuery 3.7.1 from the official CDN; `$(document).ready()`; exact console message `jQuery is ready!` | `index.html`      |
+| 1    | 1 — Selectors and CSS     | ID, class, and tag selectors; `.text()`, `.html()`, `.css()`; reset button                               | `index.html`      |
+| 2    | 2 — Visibility            | Paragraph with Hide, Show, Toggle; `.hide()`, `.show()`, `.toggle()`                                     | `effects.html`    |
+| 2    | 3 — Fade                  | Image with `.fadeIn()`, `.fadeOut()`, `.fadeToggle()`                                                    | `effects.html`    |
+| 2    | 4 — Slide                 | Collapsible panel with `.slideUp()`, `.slideDown()`, `.slideToggle()`                                    | `effects.html`    |
+| 3    | 5 — Add and remove        | List with Add Item, Prepend Item, Remove Item; `.append()`, `.prepend()`, `.remove()`                    | `dom.html`        |
+| 3    | 6 — Attributes            | Buttons change an image's `src` and a link's `href` with `.attr()`                                       | `dom.html`        |
+| 3    | 7 — Form                  | Name and Email fields; live preview through `input`, `.val()`, `.text()`                                 | `dom.html`        |
+| 4    | 8 — Basic animation       | Square grows and changes position using `.animate()`                                                     | `animations.html` |
+| 4    | 9 — Sequential animations | Right → down → shrink → return to original state using a chain of `.animate()` calls                     | `animations.html` |
+| 4    | 10 — Combined animation   | Opacity, size, and movement in a single `.animate()` call                                                | `animations.html` |
+| 5    | 11 — Mini project         | Four-image gallery; thumbnails fade in/out; click to enlarge; next/previous controls                     | `gallery.html`    |
 
 ## Project structure
 

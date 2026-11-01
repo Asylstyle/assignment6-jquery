@@ -1,15 +1,242 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."><meta name="theme-color" content="#f6f5f0"><title>Gallery · jQuery Fieldnotes</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/styles.css"><script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script defer src="assets/js/common.js"></script><script defer src="assets/js/gallery.js"></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"><span class="brand-mark">jq<span>.</span></span><span>jQuery<br><strong>Fieldnotes</strong></span></a><nav aria-label="Assignment parts"><a href="index.html"><span>01</span>Basics</a><a href="effects.html"><span>02</span>Effects</a><a href="dom.html"><span>03</span>DOM</a><a href="animations.html"><span>04</span>Animation</a><a href="gallery.html" aria-current="page"><span>05</span>Gallery</a></nav><span class="assignment-label">ASSIGNMENT 06</span></div></header>
-<main id="main"><section class="hero"><div><p class="eyebrow">PART 05 / 05 <span class="eyebrow-divider">—</span> The mini project</p><h1>Some places deserve a closer look.</h1><p class="hero-copy">A small collection of landscapes. Select a frame and step inside.</p><div class="student-line"><span class="student-dot"></span>Assylzhan Amangeldi<span class="student-divider">/</span>SE-2526</div></div><div class="hero-visual" aria-hidden="true"><span class="hero-bracket">{ </span><span class="hero-number">05</span><span class="hero-bracket"> }</span><span class="hero-visual-caption">A HANDS-ON JQUERY EXPLORATION</span></div></section>
-<div id="library-error" class="library-error" role="alert" hidden>jQuery could not load. Check your internet connection and reload the page.</div><noscript><p class="library-error">Enable JavaScript to use these interactive examples.</p></noscript>
-<div class="experiments"><section class="experiment gallery-experiment" aria-labelledby="task-11">
-      <div class="experiment-heading"><span class="task-number">TASK 11</span><h2 id="task-11">The landscape collection</h2><p>Fade the thumbnails in or out. Select any image to open the larger view.</p></div>
-      <div class="demo"><div class="gallery-toolbar"><span class="eyebrow">FOUR FRAMES · ONE COLLECTION</span><button id="toggle-thumbnails" class="secondary" aria-controls="gallery-grid" aria-expanded="true">Hide thumbnails</button></div><div class="gallery-grid" id="gallery-grid"><button class="gallery-thumbnail" data-image="assets/images/coast.svg" data-title="Coastal morning" data-description="A slow morning at the edge of the sea." data-alt="A quiet blue coast with layered sea cliffs" data-number="01" aria-label="Enlarge Coastal morning"><img src="assets/images/coast.svg" alt="A quiet blue coast with layered sea cliffs" width="960" height="640"><span><strong>Coastal morning</strong><span>01 ↗</span></span></button><button class="gallery-thumbnail" data-image="assets/images/dunes.svg" data-title="Desert afterglow" data-description="The last light settles on warm, rolling dunes." data-alt="Terracotta dunes beneath a warm evening sky" data-number="02" aria-label="Enlarge Desert afterglow"><img src="assets/images/dunes.svg" alt="Terracotta dunes beneath a warm evening sky" width="960" height="640"><span><strong>Desert afterglow</strong><span>02 ↗</span></span></button><button class="gallery-thumbnail" data-image="assets/images/mountains.svg" data-title="Alpine stillness" data-description="A lake holds the mountains perfectly still." data-alt="Layered green mountains reflected in an alpine lake" data-number="03" aria-label="Enlarge Alpine stillness"><img src="assets/images/mountains.svg" alt="Layered green mountains reflected in an alpine lake" width="960" height="640"><span><strong>Alpine stillness</strong><span>03 ↗</span></span></button><button class="gallery-thumbnail" data-image="assets/images/night.svg" data-title="Under the stars" data-description="A little distance from the noise of the day." data-alt="A moonlit violet mountain landscape under stars" data-number="04" aria-label="Enlarge Under the stars"><img src="assets/images/night.svg" alt="A moonlit violet mountain landscape under stars" width="960" height="640"><span><strong>Under the stars</strong><span>04 ↗</span></span></button></div><p id="gallery-status" class="feedback" role="status">4 landscapes. Select an image to enlarge it.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$thumbnails.fadeToggle(300);
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."
+    />
+    <meta name="theme-color" content="#f6f5f0" />
+    <title>Gallery · jQuery Fieldnotes</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="assets/js/common.js"></script>
+    <script defer src="assets/js/gallery.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"
+          ><span class="brand-mark">jq<span>.</span></span
+          ><span>jQuery<br /><strong>Fieldnotes</strong></span></a
+        >
+        <nav aria-label="Assignment parts">
+          <a href="index.html"><span>01</span>Basics</a
+          ><a href="effects.html"><span>02</span>Effects</a
+          ><a href="dom.html"><span>03</span>DOM</a
+          ><a href="animations.html"><span>04</span>Animation</a
+          ><a href="gallery.html" aria-current="page"><span>05</span>Gallery</a>
+        </nav>
+        <span class="assignment-label">ASSIGNMENT 06</span>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">
+            PART 05 / 05 <span class="eyebrow-divider">—</span> The mini project
+          </p>
+          <h1>Some places deserve a closer look.</h1>
+          <p class="hero-copy">
+            A small collection of landscapes. Select a frame and step inside.
+          </p>
+          <div class="student-line">
+            <span class="student-dot"></span>Assylzhan Amangeldi<span
+              class="student-divider"
+              >/</span
+            >SE-2526
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <span class="hero-bracket">{ </span><span class="hero-number">05</span
+          ><span class="hero-bracket"> }</span
+          ><span class="hero-visual-caption"
+            >A HANDS-ON JQUERY EXPLORATION</span
+          >
+        </div>
+      </section>
+      <div id="library-error" class="library-error" role="alert" hidden>
+        jQuery could not load. Check your internet connection and reload the
+        page.
+      </div>
+      <noscript
+        ><p class="library-error">
+          Enable JavaScript to use these interactive examples.
+        </p></noscript
+      >
+      <div class="experiments">
+        <section
+          class="experiment gallery-experiment"
+          aria-labelledby="task-11"
+        >
+          <div class="experiment-heading">
+            <span class="task-number">TASK 11</span>
+            <h2 id="task-11">The landscape collection</h2>
+            <p>
+              Fade the thumbnails in or out. Select any image to open the larger
+              view.
+            </p>
+          </div>
+          <div class="demo">
+            <div class="gallery-toolbar">
+              <span class="eyebrow">FOUR FRAMES · ONE COLLECTION</span
+              ><button
+                id="toggle-thumbnails"
+                class="secondary"
+                aria-controls="gallery-grid"
+                aria-expanded="true"
+              >
+                Hide thumbnails
+              </button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+              <button
+                class="gallery-thumbnail"
+                data-image="assets/images/coast.svg"
+                data-title="Coastal morning"
+                data-description="A slow morning at the edge of the sea."
+                data-alt="A quiet blue coast with layered sea cliffs"
+                data-number="01"
+                aria-label="Enlarge Coastal morning"
+              >
+                <img
+                  src="assets/images/coast.svg"
+                  alt="A quiet blue coast with layered sea cliffs"
+                  width="960"
+                  height="640"
+                /><span
+                  ><strong>Coastal morning</strong><span>01 ↗</span></span
+                ></button
+              ><button
+                class="gallery-thumbnail"
+                data-image="assets/images/dunes.svg"
+                data-title="Desert afterglow"
+                data-description="The last light settles on warm, rolling dunes."
+                data-alt="Terracotta dunes beneath a warm evening sky"
+                data-number="02"
+                aria-label="Enlarge Desert afterglow"
+              >
+                <img
+                  src="assets/images/dunes.svg"
+                  alt="Terracotta dunes beneath a warm evening sky"
+                  width="960"
+                  height="640"
+                /><span
+                  ><strong>Desert afterglow</strong><span>02 ↗</span></span
+                ></button
+              ><button
+                class="gallery-thumbnail"
+                data-image="assets/images/mountains.svg"
+                data-title="Alpine stillness"
+                data-description="A lake holds the mountains perfectly still."
+                data-alt="Layered green mountains reflected in an alpine lake"
+                data-number="03"
+                aria-label="Enlarge Alpine stillness"
+              >
+                <img
+                  src="assets/images/mountains.svg"
+                  alt="Layered green mountains reflected in an alpine lake"
+                  width="960"
+                  height="640"
+                /><span
+                  ><strong>Alpine stillness</strong><span>03 ↗</span></span
+                ></button
+              ><button
+                class="gallery-thumbnail"
+                data-image="assets/images/night.svg"
+                data-title="Under the stars"
+                data-description="A little distance from the noise of the day."
+                data-alt="A moonlit violet mountain landscape under stars"
+                data-number="04"
+                aria-label="Enlarge Under the stars"
+              >
+                <img
+                  src="assets/images/night.svg"
+                  alt="A moonlit violet mountain landscape under stars"
+                  width="960"
+                  height="640"
+                /><span
+                  ><strong>Under the stars</strong><span>04 ↗</span></span
+                >
+              </button>
+            </div>
+            <p id="gallery-status" class="feedback" role="status">
+              4 landscapes. Select an image to enlarge it.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$thumbnails.fadeToggle(300);
 $viewerImage.attr(&quot;src&quot;, $thumbnail.data(&quot;image&quot;));
-$viewer.fadeIn(250);</code></pre></details>
-    </section></div><div id="gallery-viewer" class="gallery-viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" tabindex="-1"><div class="viewer-content"><div class="viewer-top"><span id="viewer-number">01 / 04</span><button id="close-viewer" class="viewer-close" aria-label="Close enlarged image">Close ×</button></div><img id="viewer-image" src="assets/images/coast.svg" alt="A quiet blue coast with layered sea cliffs" width="960" height="640"><div class="viewer-caption"><div><h2 id="viewer-title">Coastal morning</h2><p id="viewer-description">A slow morning at the edge of the sea.</p></div><div class="viewer-navigation"><button id="previous-image" aria-label="Previous image">←</button><button id="next-image" aria-label="Next image">→</button></div></div><p class="viewer-hint">← → to browse · Esc to close</p></div></div><a class="next-part" href="index.html"><span><span class="eyebrow">BACK TO THE BEGINNING</span><strong>Setup & selectors</strong></span><span aria-hidden="true">↗</span></a></main>
-<footer class="site-footer"><span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span><span>Assylzhan Amangeldi · SE-2526</span><a href="https://api.jquery.com/" target="_blank" rel="noopener noreferrer">jQuery documentation ↗</a></footer></body></html>
+$viewer.fadeIn(250);</code></pre>
+          </details>
+        </section>
+      </div>
+      <div
+        id="gallery-viewer"
+        class="gallery-viewer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="viewer-title"
+        tabindex="-1"
+      >
+        <div class="viewer-content">
+          <div class="viewer-top">
+            <span id="viewer-number">01 / 04</span
+            ><button
+              id="close-viewer"
+              class="viewer-close"
+              aria-label="Close enlarged image"
+            >
+              Close ×
+            </button>
+          </div>
+          <img
+            id="viewer-image"
+            src="assets/images/coast.svg"
+            alt="A quiet blue coast with layered sea cliffs"
+            width="960"
+            height="640"
+          />
+          <div class="viewer-caption">
+            <div>
+              <h2 id="viewer-title">Coastal morning</h2>
+              <p id="viewer-description">
+                A slow morning at the edge of the sea.
+              </p>
+            </div>
+            <div class="viewer-navigation">
+              <button id="previous-image" aria-label="Previous image">←</button
+              ><button id="next-image" aria-label="Next image">→</button>
+            </div>
+          </div>
+          <p class="viewer-hint">← → to browse · Esc to close</p>
+        </div>
+      </div>
+      <a class="next-part" href="index.html"
+        ><span
+          ><span class="eyebrow">BACK TO THE BEGINNING</span
+          ><strong>Setup & selectors</strong></span
+        ><span aria-hidden="true">↗</span></a
+      >
+    </main>
+    <footer class="site-footer">
+      <span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span
+      ><span>Assylzhan Amangeldi · SE-2526</span
+      ><a
+        href="https://api.jquery.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >jQuery documentation ↗</a
+      >
+    </footer>
+  </body>
+</html>

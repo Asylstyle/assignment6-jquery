@@ -13,17 +13,28 @@ if (window.jQuery) {
       $("#toggle-thumbnails")
         .text(isVisible ? "Hide thumbnails" : "Show thumbnails")
         .attr("aria-expanded", String(isVisible));
-      $("#gallery-status").text(isVisible ? "4 landscapes. Select an image to enlarge it." : "Thumbnails hidden. Show them to explore the collection.");
+      $("#gallery-status").text(
+        isVisible
+          ? "4 landscapes. Select an image to enlarge it."
+          : "Thumbnails hidden. Show them to explore the collection.",
+      );
     }
 
     $("#toggle-thumbnails").on("click", function () {
-      $thumbnails.stop(true, true).fadeToggle(300).promise().done(updateGalleryStatus);
+      $thumbnails
+        .stop(true, true)
+        .fadeToggle(300)
+        .promise()
+        .done(updateGalleryStatus);
     });
 
     function showImage(index) {
       activeIndex = (index + $thumbnails.length) % $thumbnails.length;
       const $thumbnail = $thumbnails.eq(activeIndex);
-      $("#viewer-image").attr({ src: $thumbnail.data("image"), alt: $thumbnail.data("alt") });
+      $("#viewer-image").attr({
+        src: $thumbnail.data("image"),
+        alt: $thumbnail.data("alt"),
+      });
       $("#viewer-title").text($thumbnail.data("title"));
       $("#viewer-description").text($thumbnail.data("description"));
       $("#viewer-number").text($thumbnail.data("number") + " / 04");
@@ -54,8 +65,12 @@ if (window.jQuery) {
       openViewer($thumbnails.index(this), this);
     });
     $("#close-viewer").on("click", closeViewer);
-    $("#previous-image").on("click", function () { showImage(activeIndex - 1); });
-    $("#next-image").on("click", function () { showImage(activeIndex + 1); });
+    $("#previous-image").on("click", function () {
+      showImage(activeIndex - 1);
+    });
+    $("#next-image").on("click", function () {
+      showImage(activeIndex + 1);
+    });
     $viewer.on("click", function (event) {
       if (event.target === this) closeViewer();
     });
@@ -63,16 +78,24 @@ if (window.jQuery) {
     $(document).on("keydown", function (event) {
       if (!$viewer.is(":visible")) return;
       if (event.key === "Escape") closeViewer();
-      if (event.key === "ArrowLeft") { event.preventDefault(); showImage(activeIndex - 1); }
-      if (event.key === "ArrowRight") { event.preventDefault(); showImage(activeIndex + 1); }
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showImage(activeIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showImage(activeIndex + 1);
+      }
       if (event.key === "Tab") {
         const $buttons = $viewer.find("button");
         const first = $buttons.first()[0];
         const last = $buttons.last()[0];
         if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault(); last.focus();
+          event.preventDefault();
+          last.focus();
         } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault(); first.focus();
+          event.preventDefault();
+          first.focus();
         }
       }
     });

@@ -20,7 +20,9 @@ if (window.jQuery) {
     function updateSlideStatus() {
       const isExpanded = $panel.is(":visible");
       $("#slide-toggle").attr("aria-expanded", String(isExpanded));
-      $("#slide-status").text(isExpanded ? "The panel is expanded." : "The panel is collapsed.");
+      $("#slide-status").text(
+        isExpanded ? "The panel is expanded." : "The panel is collapsed.",
+      );
     }
 
     $("#hide-paragraph").on("click", function () {

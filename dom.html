@@ -1,26 +1,229 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."><meta name="theme-color" content="#f6f5f0"><title>DOM · jQuery Fieldnotes</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/styles.css"><script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script defer src="assets/js/common.js"></script><script defer src="assets/js/dom.js"></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"><span class="brand-mark">jq<span>.</span></span><span>jQuery<br><strong>Fieldnotes</strong></span></a><nav aria-label="Assignment parts"><a href="index.html"><span>01</span>Basics</a><a href="effects.html"><span>02</span>Effects</a><a href="dom.html" aria-current="page"><span>03</span>DOM</a><a href="animations.html"><span>04</span>Animation</a><a href="gallery.html"><span>05</span>Gallery</a></nav><span class="assignment-label">ASSIGNMENT 06</span></div></header>
-<main id="main"><section class="hero"><div><p class="eyebrow">PART 03 / 05 <span class="eyebrow-divider">—</span> DOM manipulation</p><h1>Make the page your own.</h1><p class="hero-copy">Add something new, change a destination, and watch input come to life.</p><div class="student-line"><span class="student-dot"></span>Assylzhan Amangeldi<span class="student-divider">/</span>SE-2526</div></div><div class="hero-visual" aria-hidden="true"><span class="hero-bracket">{ </span><span class="hero-number">03</span><span class="hero-bracket"> }</span><span class="hero-visual-caption">A HANDS-ON JQUERY EXPLORATION</span></div></section>
-<div id="library-error" class="library-error" role="alert" hidden>jQuery could not load. Check your internet connection and reload the page.</div><noscript><p class="library-error">Enable JavaScript to use these interactive examples.</p></noscript>
-<div class="experiments"><section class="experiment " aria-labelledby="task-5">
-      <div class="experiment-heading"><span class="task-number">TASK 05</span><h2 id="task-5">Build a small collection</h2><p>Append at the end, prepend at the beginning, or remove the last item.</p></div>
-      <div class="demo"><div class="list-top"><span class="eyebrow">THINGS TO EXPLORE</span><span id="item-count" class="small-badge" role="status">3 items</span></div><ul id="item-list" class="item-list"><li>Find a new perspective</li><li>Notice the small details</li><li>Try something different</li></ul><div class="controls"><button id="append-item">Add Item</button><button id="prepend-item" class="secondary">Prepend Item</button><button id="remove-item" class="secondary">Remove Item</button></div><p id="list-status" class="feedback" role="status">Remove Item removes the last item.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$list.append($(&quot;&lt;li&gt;&quot;).text(&quot;New item&quot;));
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."
+    />
+    <meta name="theme-color" content="#f6f5f0" />
+    <title>DOM · jQuery Fieldnotes</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="assets/js/common.js"></script>
+    <script defer src="assets/js/dom.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"
+          ><span class="brand-mark">jq<span>.</span></span
+          ><span>jQuery<br /><strong>Fieldnotes</strong></span></a
+        >
+        <nav aria-label="Assignment parts">
+          <a href="index.html"><span>01</span>Basics</a
+          ><a href="effects.html"><span>02</span>Effects</a
+          ><a href="dom.html" aria-current="page"><span>03</span>DOM</a
+          ><a href="animations.html"><span>04</span>Animation</a
+          ><a href="gallery.html"><span>05</span>Gallery</a>
+        </nav>
+        <span class="assignment-label">ASSIGNMENT 06</span>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">
+            PART 03 / 05 <span class="eyebrow-divider">—</span> DOM manipulation
+          </p>
+          <h1>Make the page your own.</h1>
+          <p class="hero-copy">
+            Add something new, change a destination, and watch input come to
+            life.
+          </p>
+          <div class="student-line">
+            <span class="student-dot"></span>Assylzhan Amangeldi<span
+              class="student-divider"
+              >/</span
+            >SE-2526
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <span class="hero-bracket">{ </span><span class="hero-number">03</span
+          ><span class="hero-bracket"> }</span
+          ><span class="hero-visual-caption"
+            >A HANDS-ON JQUERY EXPLORATION</span
+          >
+        </div>
+      </section>
+      <div id="library-error" class="library-error" role="alert" hidden>
+        jQuery could not load. Check your internet connection and reload the
+        page.
+      </div>
+      <noscript
+        ><p class="library-error">
+          Enable JavaScript to use these interactive examples.
+        </p></noscript
+      >
+      <div class="experiments">
+        <section class="experiment" aria-labelledby="task-5">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 05</span>
+            <h2 id="task-5">Build a small collection</h2>
+            <p>
+              Append at the end, prepend at the beginning, or remove the last
+              item.
+            </p>
+          </div>
+          <div class="demo">
+            <div class="list-top">
+              <span class="eyebrow">THINGS TO EXPLORE</span
+              ><span id="item-count" class="small-badge" role="status"
+                >3 items</span
+              >
+            </div>
+            <ul id="item-list" class="item-list">
+              <li>Find a new perspective</li>
+              <li>Notice the small details</li>
+              <li>Try something different</li>
+            </ul>
+            <div class="controls">
+              <button id="append-item">Add Item</button
+              ><button id="prepend-item" class="secondary">Prepend Item</button
+              ><button id="remove-item" class="secondary">Remove Item</button>
+            </div>
+            <p id="list-status" class="feedback" role="status">
+              Remove Item removes the last item.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$list.append($(&quot;&lt;li&gt;&quot;).text(&quot;New item&quot;));
 $list.prepend($(&quot;&lt;li&gt;&quot;).text(&quot;First item&quot;));
-$list.children(&quot;li&quot;).last().remove();</code></pre></details>
-    </section><section class="experiment " aria-labelledby="task-6">
-      <div class="experiment-heading"><span class="task-number">TASK 06</span><h2 id="task-6">A different point of view</h2><p>The image source and link destination are attributes you can change.</p></div>
-      <div class="demo"><div class="attribute-layout"><img id="attribute-image" src="assets/images/coast.svg" alt="A quiet blue coast with layered sea cliffs" width="960" height="640"><div><span class="eyebrow">CHANGE THE DESTINATION</span><h3 id="image-name">Coastal morning</h3><p id="image-path" class="path-label">assets/images/coast.svg</p><button id="change-image">Change image</button><div class="link-demo"><a id="resource-link" href="https://api.jquery.com/" target="_blank" rel="noopener noreferrer">Open jQuery API ↗</a><p id="link-destination" class="path-label">https://api.jquery.com/</p><button id="change-link" class="secondary">Change link</button></div></div></div></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$image.attr(&quot;src&quot;, &quot;assets/images/dunes.svg&quot;);
-$link.attr(&quot;href&quot;, &quot;https://learn.jquery.com/&quot;);</code></pre></details>
-    </section><section class="experiment " aria-labelledby="task-7">
-      <div class="experiment-heading"><span class="task-number">TASK 07</span><h2 id="task-7">Your words, live</h2><p>Type a name and email. The preview updates with every input event.</p></div>
-      <div class="demo"><div class="form-layout"><form id="profile-form"><label for="profile-name">Name</label><input id="profile-name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="100"><label for="profile-email">Email</label><input id="profile-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254"><p class="muted">A local preview. Nothing is submitted or saved.</p></form><div class="profile-preview"><span class="eyebrow">LIVE PREVIEW</span><span class="profile-avatar" aria-hidden="true">↗</span><h3 id="preview-name">Your name</h3><p id="preview-email">you@example.com</p></div></div></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$(&quot;#profile-name&quot;).on(&quot;input&quot;, function () {
+$list.children(&quot;li&quot;).last().remove();</code></pre>
+          </details>
+        </section>
+        <section class="experiment" aria-labelledby="task-6">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 06</span>
+            <h2 id="task-6">A different point of view</h2>
+            <p>
+              The image source and link destination are attributes you can
+              change.
+            </p>
+          </div>
+          <div class="demo">
+            <div class="attribute-layout">
+              <img
+                id="attribute-image"
+                src="assets/images/coast.svg"
+                alt="A quiet blue coast with layered sea cliffs"
+                width="960"
+                height="640"
+              />
+              <div>
+                <span class="eyebrow">CHANGE THE DESTINATION</span>
+                <h3 id="image-name">Coastal morning</h3>
+                <p id="image-path" class="path-label">
+                  assets/images/coast.svg
+                </p>
+                <button id="change-image">Change image</button>
+                <div class="link-demo">
+                  <a
+                    id="resource-link"
+                    href="https://api.jquery.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Open jQuery API ↗</a
+                  >
+                  <p id="link-destination" class="path-label">
+                    https://api.jquery.com/
+                  </p>
+                  <button id="change-link" class="secondary">
+                    Change link
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$image.attr(&quot;src&quot;, &quot;assets/images/dunes.svg&quot;);
+$link.attr(&quot;href&quot;, &quot;https://learn.jquery.com/&quot;);</code></pre>
+          </details>
+        </section>
+        <section class="experiment" aria-labelledby="task-7">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 07</span>
+            <h2 id="task-7">Your words, live</h2>
+            <p>
+              Type a name and email. The preview updates with every input event.
+            </p>
+          </div>
+          <div class="demo">
+            <div class="form-layout">
+              <form id="profile-form">
+                <label for="profile-name">Name</label
+                ><input
+                  id="profile-name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  maxlength="100"
+                /><label for="profile-email">Email</label
+                ><input
+                  id="profile-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  maxlength="254"
+                />
+                <p class="muted">
+                  A local preview. Nothing is submitted or saved.
+                </p>
+              </form>
+              <div class="profile-preview">
+                <span class="eyebrow">LIVE PREVIEW</span
+                ><span class="profile-avatar" aria-hidden="true">↗</span>
+                <h3 id="preview-name">Your name</h3>
+                <p id="preview-email">you@example.com</p>
+              </div>
+            </div>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$(&quot;#profile-name&quot;).on(&quot;input&quot;, function () {
   $(&quot;#preview-name&quot;).text($(this).val() || &quot;Your name&quot;);
-});</code></pre></details>
-    </section></div><a class="next-part" href="animations.html"><span><span class="eyebrow">KEEP EXPLORING</span><strong>Custom animations</strong></span><span aria-hidden="true">↗</span></a></main>
-<footer class="site-footer"><span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span><span>Assylzhan Amangeldi · SE-2526</span><a href="https://api.jquery.com/" target="_blank" rel="noopener noreferrer">jQuery documentation ↗</a></footer></body></html>
+});</code></pre>
+          </details>
+        </section>
+      </div>
+      <a class="next-part" href="animations.html"
+        ><span
+          ><span class="eyebrow">KEEP EXPLORING</span
+          ><strong>Custom animations</strong></span
+        ><span aria-hidden="true">↗</span></a
+      >
+    </main>
+    <footer class="site-footer">
+      <span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span
+      ><span>Assylzhan Amangeldi · SE-2526</span
+      ><a
+        href="https://api.jquery.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >jQuery documentation ↗</a
+      >
+    </footer>
+  </body>
+</html>

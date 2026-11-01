@@ -32,8 +32,16 @@ if (window.jQuery) {
     });
 
     const images = [
-      { src: "assets/images/coast.svg", name: "Coastal morning", alt: "A quiet blue coast with layered sea cliffs" },
-      { src: "assets/images/dunes.svg", name: "Desert afterglow", alt: "Terracotta dunes beneath a warm evening sky" }
+      {
+        src: "assets/images/coast.svg",
+        name: "Coastal morning",
+        alt: "A quiet blue coast with layered sea cliffs",
+      },
+      {
+        src: "assets/images/dunes.svg",
+        name: "Desert afterglow",
+        alt: "Terracotta dunes beneath a warm evening sky",
+      },
     ];
     let imageIndex = 0;
     $("#change-image").on("click", function () {
@@ -46,7 +54,10 @@ if (window.jQuery) {
 
     const links = [
       { href: "https://api.jquery.com/", label: "Open jQuery API ↗" },
-      { href: "https://learn.jquery.com/", label: "Open jQuery Learning Center ↗" }
+      {
+        href: "https://learn.jquery.com/",
+        label: "Open jQuery Learning Center ↗",
+      },
     ];
     let linkIndex = 0;
     $("#change-link").on("click", function () {

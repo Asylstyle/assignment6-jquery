@@ -1,28 +1,198 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."><meta name="theme-color" content="#f6f5f0"><title>Animation · jQuery Fieldnotes</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/styles.css"><script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script defer src="assets/js/common.js"></script><script defer src="assets/js/animations.js"></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"><span class="brand-mark">jq<span>.</span></span><span>jQuery<br><strong>Fieldnotes</strong></span></a><nav aria-label="Assignment parts"><a href="index.html"><span>01</span>Basics</a><a href="effects.html"><span>02</span>Effects</a><a href="dom.html"><span>03</span>DOM</a><a href="animations.html" aria-current="page"><span>04</span>Animation</a><a href="gallery.html"><span>05</span>Gallery</a></nav><span class="assignment-label">ASSIGNMENT 06</span></div></header>
-<main id="main"><section class="hero"><div><p class="eyebrow">PART 04 / 05 <span class="eyebrow-divider">—</span> Custom animations</p><h1>Put your ideas in motion.</h1><p class="hero-copy">One square. Three experiments in size, movement, and timing.</p><div class="student-line"><span class="student-dot"></span>Assylzhan Amangeldi<span class="student-divider">/</span>SE-2526</div></div><div class="hero-visual" aria-hidden="true"><span class="hero-bracket">{ </span><span class="hero-number">04</span><span class="hero-bracket"> }</span><span class="hero-visual-caption">A HANDS-ON JQUERY EXPLORATION</span></div></section>
-<div id="library-error" class="library-error" role="alert" hidden>jQuery could not load. Check your internet connection and reload the page.</div><noscript><p class="library-error">Enable JavaScript to use these interactive examples.</p></noscript>
-<div class="experiments"><section class="experiment " aria-labelledby="task-8">
-      <div class="experiment-heading"><span class="task-number">TASK 08</span><h2 id="task-8">A bigger move</h2><p>Increase a square’s size and change its position in one animation.</p></div>
-      <div class="demo"><div id="basic-stage" class="animation-stage"><span class="stage-label">POSITION + SIZE</span><div id="basic-box" class="motion-box" aria-label="Animated square"></div><span class="stage-origin">ORIGIN</span></div><div class="controls"><button id="run-basic">Run animation <span aria-hidden="true">↗</span></button><button id="reset-basic" class="secondary">Reset</button></div><p id="basic-status" class="feedback" role="status">Ready to move.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$box.animate({ left: 160, top: 40, width: 112, height: 112 }, 650);</code></pre></details>
-    </section><section class="experiment " aria-labelledby="task-9">
-      <div class="experiment-heading"><span class="task-number">TASK 09</span><h2 id="task-9">One step at a time</h2><p>Move right → move down → shrink → return to the original state.</p></div>
-      <div class="demo"><div id="sequence-stage" class="animation-stage"><span class="stage-label">FOUR STEPS · ONE QUEUE</span><div id="sequence-box" class="motion-box" aria-label="Animated square"></div><span class="stage-origin">ORIGIN</span></div><div class="controls"><button id="run-sequence">Run animation <span aria-hidden="true">↗</span></button><button id="reset-sequence" class="secondary">Reset</button></div><p id="sequence-status" class="feedback" role="status">Ready to move.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$box
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."
+    />
+    <meta name="theme-color" content="#f6f5f0" />
+    <title>Animation · jQuery Fieldnotes</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="assets/js/common.js"></script>
+    <script defer src="assets/js/animations.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"
+          ><span class="brand-mark">jq<span>.</span></span
+          ><span>jQuery<br /><strong>Fieldnotes</strong></span></a
+        >
+        <nav aria-label="Assignment parts">
+          <a href="index.html"><span>01</span>Basics</a
+          ><a href="effects.html"><span>02</span>Effects</a
+          ><a href="dom.html"><span>03</span>DOM</a
+          ><a href="animations.html" aria-current="page"
+            ><span>04</span>Animation</a
+          ><a href="gallery.html"><span>05</span>Gallery</a>
+        </nav>
+        <span class="assignment-label">ASSIGNMENT 06</span>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">
+            PART 04 / 05 <span class="eyebrow-divider">—</span> Custom
+            animations
+          </p>
+          <h1>Put your ideas in motion.</h1>
+          <p class="hero-copy">
+            One square. Three experiments in size, movement, and timing.
+          </p>
+          <div class="student-line">
+            <span class="student-dot"></span>Assylzhan Amangeldi<span
+              class="student-divider"
+              >/</span
+            >SE-2526
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <span class="hero-bracket">{ </span><span class="hero-number">04</span
+          ><span class="hero-bracket"> }</span
+          ><span class="hero-visual-caption"
+            >A HANDS-ON JQUERY EXPLORATION</span
+          >
+        </div>
+      </section>
+      <div id="library-error" class="library-error" role="alert" hidden>
+        jQuery could not load. Check your internet connection and reload the
+        page.
+      </div>
+      <noscript
+        ><p class="library-error">
+          Enable JavaScript to use these interactive examples.
+        </p></noscript
+      >
+      <div class="experiments">
+        <section class="experiment" aria-labelledby="task-8">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 08</span>
+            <h2 id="task-8">A bigger move</h2>
+            <p>
+              Increase a square’s size and change its position in one animation.
+            </p>
+          </div>
+          <div class="demo">
+            <div id="basic-stage" class="animation-stage">
+              <span class="stage-label">POSITION + SIZE</span>
+              <div
+                id="basic-box"
+                class="motion-box"
+                aria-label="Animated square"
+              ></div>
+              <span class="stage-origin">ORIGIN</span>
+            </div>
+            <div class="controls">
+              <button id="run-basic">
+                Run animation <span aria-hidden="true">↗</span></button
+              ><button id="reset-basic" class="secondary">Reset</button>
+            </div>
+            <p id="basic-status" class="feedback" role="status">
+              Ready to move.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$box.animate({ left: 160, top: 40, width: 112, height: 112 }, 650);</code></pre>
+          </details>
+        </section>
+        <section class="experiment" aria-labelledby="task-9">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 09</span>
+            <h2 id="task-9">One step at a time</h2>
+            <p>
+              Move right → move down → shrink → return to the original state.
+            </p>
+          </div>
+          <div class="demo">
+            <div id="sequence-stage" class="animation-stage">
+              <span class="stage-label">FOUR STEPS · ONE QUEUE</span>
+              <div
+                id="sequence-box"
+                class="motion-box"
+                aria-label="Animated square"
+              ></div>
+              <span class="stage-origin">ORIGIN</span>
+            </div>
+            <div class="controls">
+              <button id="run-sequence">
+                Run animation <span aria-hidden="true">↗</span></button
+              ><button id="reset-sequence" class="secondary">Reset</button>
+            </div>
+            <p id="sequence-status" class="feedback" role="status">
+              Ready to move.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$box
   .animate({ left: 160 }, 450)
   .animate({ top: 120 }, 450)
   .animate({ width: 36, height: 36 }, 450)
-  .animate({ left: 20, top: 20, width: 64, height: 64 }, 450);</code></pre></details>
-    </section><section class="experiment " aria-labelledby="task-10">
-      <div class="experiment-heading"><span class="task-number">TASK 10</span><h2 id="task-10">All together now</h2><p>Combine opacity, size, and movement in a single animate call.</p></div>
-      <div class="demo"><div id="combined-stage" class="animation-stage"><span class="stage-label">MOVEMENT + SIZE + OPACITY</span><div id="combined-box" class="motion-box" aria-label="Animated square"></div><span class="stage-origin">ORIGIN</span></div><div class="controls"><button id="run-combined">Run animation <span aria-hidden="true">↗</span></button><button id="reset-combined" class="secondary">Reset</button></div><p id="combined-status" class="feedback" role="status">Ready to move.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$box.animate({
+  .animate({ left: 20, top: 20, width: 64, height: 64 }, 450);</code></pre>
+          </details>
+        </section>
+        <section class="experiment" aria-labelledby="task-10">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 10</span>
+            <h2 id="task-10">All together now</h2>
+            <p>Combine opacity, size, and movement in a single animate call.</p>
+          </div>
+          <div class="demo">
+            <div id="combined-stage" class="animation-stage">
+              <span class="stage-label">MOVEMENT + SIZE + OPACITY</span>
+              <div
+                id="combined-box"
+                class="motion-box"
+                aria-label="Animated square"
+              ></div>
+              <span class="stage-origin">ORIGIN</span>
+            </div>
+            <div class="controls">
+              <button id="run-combined">
+                Run animation <span aria-hidden="true">↗</span></button
+              ><button id="reset-combined" class="secondary">Reset</button>
+            </div>
+            <p id="combined-status" class="feedback" role="status">
+              Ready to move.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$box.animate({
   left: 160, top: 80,
   width: 112, height: 112, opacity: 0.4
-}, 800);</code></pre></details>
-    </section></div><a class="next-part" href="gallery.html"><span><span class="eyebrow">KEEP EXPLORING</span><strong>The mini project</strong></span><span aria-hidden="true">↗</span></a></main>
-<footer class="site-footer"><span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span><span>Assylzhan Amangeldi · SE-2526</span><a href="https://api.jquery.com/" target="_blank" rel="noopener noreferrer">jQuery documentation ↗</a></footer></body></html>
+}, 800);</code></pre>
+          </details>
+        </section>
+      </div>
+      <a class="next-part" href="gallery.html"
+        ><span
+          ><span class="eyebrow">KEEP EXPLORING</span
+          ><strong>The mini project</strong></span
+        ><span aria-hidden="true">↗</span></a
+      >
+    </main>
+    <footer class="site-footer">
+      <span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span
+      ><span>Assylzhan Amangeldi · SE-2526</span
+      ><a
+        href="https://api.jquery.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >jQuery documentation ↗</a
+      >
+    </footer>
+  </body>
+</html>

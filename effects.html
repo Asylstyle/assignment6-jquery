@@ -1,27 +1,205 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."><meta name="theme-color" content="#f6f5f0"><title>Effects · jQuery Fieldnotes</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/styles.css"><script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script defer src="assets/js/common.js"></script><script defer src="assets/js/effects.js"></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"><span class="brand-mark">jq<span>.</span></span><span>jQuery<br><strong>Fieldnotes</strong></span></a><nav aria-label="Assignment parts"><a href="index.html"><span>01</span>Basics</a><a href="effects.html" aria-current="page"><span>02</span>Effects</a><a href="dom.html"><span>03</span>DOM</a><a href="animations.html"><span>04</span>Animation</a><a href="gallery.html"><span>05</span>Gallery</a></nav><span class="assignment-label">ASSIGNMENT 06</span></div></header>
-<main id="main"><section class="hero"><div><p class="eyebrow">PART 02 / 05 <span class="eyebrow-divider">—</span> Visibility, fade & slide</p><h1>A little motion. A big difference.</h1><p class="hero-copy">Explore three ways to reveal and hide content with jQuery.</p><div class="student-line"><span class="student-dot"></span>Assylzhan Amangeldi<span class="student-divider">/</span>SE-2526</div></div><div class="hero-visual" aria-hidden="true"><span class="hero-bracket">{ </span><span class="hero-number">02</span><span class="hero-bracket"> }</span><span class="hero-visual-caption">A HANDS-ON JQUERY EXPLORATION</span></div></section>
-<div id="library-error" class="library-error" role="alert" hidden>jQuery could not load. Check your internet connection and reload the page.</div><noscript><p class="library-error">Enable JavaScript to use these interactive examples.</p></noscript>
-<div class="experiments"><section class="experiment " aria-labelledby="task-2">
-      <div class="experiment-heading"><span class="task-number">TASK 02</span><h2 id="task-2">Here. Gone. Back again.</h2><p>Hide and show a paragraph, or toggle between the two states.</p></div>
-      <div class="demo"><div class="visibility-space"><p id="visibility-paragraph" class="quote">“The details are not the details.<br>They make the design.”<span>— Charles Eames</span></p></div><div class="controls"><button id="hide-paragraph">Hide</button><button id="show-paragraph" class="secondary">Show</button><button id="toggle-paragraph" class="secondary">Toggle</button></div><p id="visibility-status" class="feedback" role="status">The paragraph is visible.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$paragraph.hide();
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Assignment 6 by Assylzhan Amangeldi, SE-2526. Interactive jQuery selectors, effects, DOM manipulation, animations and gallery."
+    />
+    <meta name="theme-color" content="#f6f5f0" />
+    <title>Effects · jQuery Fieldnotes</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="assets/js/common.js"></script>
+    <script defer src="assets/js/effects.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="jQuery Fieldnotes home"
+          ><span class="brand-mark">jq<span>.</span></span
+          ><span>jQuery<br /><strong>Fieldnotes</strong></span></a
+        >
+        <nav aria-label="Assignment parts">
+          <a href="index.html"><span>01</span>Basics</a
+          ><a href="effects.html" aria-current="page"><span>02</span>Effects</a
+          ><a href="dom.html"><span>03</span>DOM</a
+          ><a href="animations.html"><span>04</span>Animation</a
+          ><a href="gallery.html"><span>05</span>Gallery</a>
+        </nav>
+        <span class="assignment-label">ASSIGNMENT 06</span>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">
+            PART 02 / 05 <span class="eyebrow-divider">—</span> Visibility, fade
+            & slide
+          </p>
+          <h1>A little motion. A big difference.</h1>
+          <p class="hero-copy">
+            Explore three ways to reveal and hide content with jQuery.
+          </p>
+          <div class="student-line">
+            <span class="student-dot"></span>Assylzhan Amangeldi<span
+              class="student-divider"
+              >/</span
+            >SE-2526
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <span class="hero-bracket">{ </span><span class="hero-number">02</span
+          ><span class="hero-bracket"> }</span
+          ><span class="hero-visual-caption"
+            >A HANDS-ON JQUERY EXPLORATION</span
+          >
+        </div>
+      </section>
+      <div id="library-error" class="library-error" role="alert" hidden>
+        jQuery could not load. Check your internet connection and reload the
+        page.
+      </div>
+      <noscript
+        ><p class="library-error">
+          Enable JavaScript to use these interactive examples.
+        </p></noscript
+      >
+      <div class="experiments">
+        <section class="experiment" aria-labelledby="task-2">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 02</span>
+            <h2 id="task-2">Here. Gone. Back again.</h2>
+            <p>Hide and show a paragraph, or toggle between the two states.</p>
+          </div>
+          <div class="demo">
+            <div class="visibility-space">
+              <p id="visibility-paragraph" class="quote">
+                “The details are not the details.<br />They make the
+                design.”<span>— Charles Eames</span>
+              </p>
+            </div>
+            <div class="controls">
+              <button id="hide-paragraph">Hide</button
+              ><button id="show-paragraph" class="secondary">Show</button
+              ><button id="toggle-paragraph" class="secondary">Toggle</button>
+            </div>
+            <p id="visibility-status" class="feedback" role="status">
+              The paragraph is visible.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$paragraph.hide();
 $paragraph.show();
-$paragraph.toggle();</code></pre></details>
-    </section><section class="experiment " aria-labelledby="task-3">
-      <div class="experiment-heading"><span class="task-number">TASK 03</span><h2 id="task-3">Let it fade</h2><p>Opacity changes gradually while the surrounding space stays still.</p></div>
-      <div class="demo"><div class="image-stage"><img id="fade-image" src="assets/images/dunes.svg" alt="Terracotta dunes beneath a warm evening sky" width="960" height="640"></div><div class="controls"><button id="fade-out">Fade out</button><button id="fade-in" class="secondary">Fade in</button><button id="fade-toggle" class="secondary">Fade toggle</button></div><p id="fade-status" class="feedback" role="status">The image is visible.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$image.fadeOut(400);
+$paragraph.toggle();</code></pre>
+          </details>
+        </section>
+        <section class="experiment" aria-labelledby="task-3">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 03</span>
+            <h2 id="task-3">Let it fade</h2>
+            <p>
+              Opacity changes gradually while the surrounding space stays still.
+            </p>
+          </div>
+          <div class="demo">
+            <div class="image-stage">
+              <img
+                id="fade-image"
+                src="assets/images/dunes.svg"
+                alt="Terracotta dunes beneath a warm evening sky"
+                width="960"
+                height="640"
+              />
+            </div>
+            <div class="controls">
+              <button id="fade-out">Fade out</button
+              ><button id="fade-in" class="secondary">Fade in</button
+              ><button id="fade-toggle" class="secondary">Fade toggle</button>
+            </div>
+            <p id="fade-status" class="feedback" role="status">
+              The image is visible.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$image.fadeOut(400);
 $image.fadeIn(400);
-$image.fadeToggle(400);</code></pre></details>
-    </section><section class="experiment " aria-labelledby="task-4">
-      <div class="experiment-heading"><span class="task-number">TASK 04</span><h2 id="task-4">Room for a little more</h2><p>A collapsible panel uses vertical motion to reveal its contents.</p></div>
-      <div class="demo"><div class="controls"><button id="slide-up" aria-controls="slide-panel">Slide up</button><button id="slide-down" class="secondary" aria-controls="slide-panel">Slide down</button><button id="slide-toggle" class="secondary" aria-controls="slide-panel" aria-expanded="true">Slide toggle</button></div><div id="slide-panel" class="slide-panel"><span class="eyebrow">A NOTE ON MOTION</span><h3>Give every transition a purpose.</h3><p>Slide effects animate the height of an element. This makes them a natural fit for panels, menus, and small pieces of supporting information.</p></div><p id="slide-status" class="feedback" role="status">The panel is expanded.</p></div>
-      <details class="code-note"><summary>See the jQuery</summary><pre><code>$panel.slideUp(400);
+$image.fadeToggle(400);</code></pre>
+          </details>
+        </section>
+        <section class="experiment" aria-labelledby="task-4">
+          <div class="experiment-heading">
+            <span class="task-number">TASK 04</span>
+            <h2 id="task-4">Room for a little more</h2>
+            <p>
+              A collapsible panel uses vertical motion to reveal its contents.
+            </p>
+          </div>
+          <div class="demo">
+            <div class="controls">
+              <button id="slide-up" aria-controls="slide-panel">Slide up</button
+              ><button
+                id="slide-down"
+                class="secondary"
+                aria-controls="slide-panel"
+              >
+                Slide down</button
+              ><button
+                id="slide-toggle"
+                class="secondary"
+                aria-controls="slide-panel"
+                aria-expanded="true"
+              >
+                Slide toggle
+              </button>
+            </div>
+            <div id="slide-panel" class="slide-panel">
+              <span class="eyebrow">A NOTE ON MOTION</span>
+              <h3>Give every transition a purpose.</h3>
+              <p>
+                Slide effects animate the height of an element. This makes them
+                a natural fit for panels, menus, and small pieces of supporting
+                information.
+              </p>
+            </div>
+            <p id="slide-status" class="feedback" role="status">
+              The panel is expanded.
+            </p>
+          </div>
+          <details class="code-note">
+            <summary>See the jQuery</summary>
+            <pre><code>$panel.slideUp(400);
 $panel.slideDown(400);
-$panel.slideToggle(400);</code></pre></details>
-    </section></div><a class="next-part" href="dom.html"><span><span class="eyebrow">KEEP EXPLORING</span><strong>DOM manipulation</strong></span><span aria-hidden="true">↗</span></a></main>
-<footer class="site-footer"><span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span><span>Assylzhan Amangeldi · SE-2526</span><a href="https://api.jquery.com/" target="_blank" rel="noopener noreferrer">jQuery documentation ↗</a></footer></body></html>
+$panel.slideToggle(400);</code></pre>
+          </details>
+        </section>
+      </div>
+      <a class="next-part" href="dom.html"
+        ><span
+          ><span class="eyebrow">KEEP EXPLORING</span
+          ><strong>DOM manipulation</strong></span
+        ><span aria-hidden="true">↗</span></a
+      >
+    </main>
+    <footer class="site-footer">
+      <span>jQuery Fieldnotes <span class="muted">/ Assignment 06</span></span
+      ><span>Assylzhan Amangeldi · SE-2526</span
+      ><a
+        href="https://api.jquery.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >jQuery documentation ↗</a
+      >
+    </footer>
+  </body>
+</html>
